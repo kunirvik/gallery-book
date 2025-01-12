@@ -15,7 +15,7 @@ function ProjectPage() {
       <Loader />
 
     <Canvas  style={{margin:'0 auto',  position: 'fixed' , width: '100vw',
-  height: '100vh', backgroundColor: '#d972c9' }}
+  height: '100vh', backgroundColor:'rgba(153, 0, 5, 0.42)' }}
        shadows camera={{
           position: [-0.5, 1, window.innerWidth > 800 ? 4 : 9],
         

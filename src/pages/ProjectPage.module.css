@@ -1,3 +1,4 @@
+
 .canvasContainer {
   position: fixed; /* Убедитесь, что Canvas занимает весь экран */
   top: 0;
@@ -6,3 +7,7 @@
   height: 100vh;
   z-index: 0; /* Canvas будет позади других элементов */
 }
+
+
+/* {margin:'0 auto',  position: 'fixed' , width: '100vw',
+  height: '100vh', backgroundColor:'rgba(153, 0, 5, 0.42)' } */

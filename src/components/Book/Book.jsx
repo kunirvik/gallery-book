@@ -67,21 +67,29 @@ pageGeometry.setAttribute(
   new Float32BufferAttribute(skinWeights, 4)
 );
 
-const whiteColor = new Color("white");
-const emissiveColor = new Color("orange");
+const whiteColor = new Color("#f5deda");
+const emissiveColor = new Color("red");
 
 const pageMaterials = [
   new MeshStandardMaterial({
     color: whiteColor,
+    roughness: 0.8,  // Увеличьте roughness для матовой поверхности
+    metalness: 0.1,
   }),
   new MeshStandardMaterial({
     color: "#111",
+    roughness: 0.8,  // Увеличьте roughness для матовой поверхности
+    metalness: 0.1,
   }),
   new MeshStandardMaterial({
     color: whiteColor,
+    roughness: 0.8,  // Увеличьте roughness для матовой поверхности
+    metalness: 0.1,
   }),
   new MeshStandardMaterial({
     color: whiteColor,
+    roughness: 0.8,  // Увеличьте roughness для матовой поверхности
+    metalness: 0.1,
   }),
 ];
 
@@ -129,10 +137,12 @@ const Page = ({ number, front, back, page, opened, bookClosed, ...props }) => {
         map: picture,
         ...(number === 0
           ? {
-              roughnessMap: pictureRoughness,
+            roughness: 0.5,
+            metalness: 0.6,
             }
           : {
-              roughness: 0.1,
+            roughness: 0.8,  // Увеличьте roughness для матовой поверхности
+            metalness: 0.5,
             }),
         emissive: emissiveColor,
         emissiveIntensity: 0,
@@ -145,7 +155,8 @@ const Page = ({ number, front, back, page, opened, bookClosed, ...props }) => {
               roughnessMap: pictureRoughness,
             }
           : {
-              roughness: 0.1,
+            roughness: 0.8,  // Увеличьте roughness для матовой поверхности
+            metalness: 0.5,
             }),
         emissive: emissiveColor,
         emissiveIntensity: 0,
