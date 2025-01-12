@@ -1,0 +1,8 @@
+.canvasContainer {
+  position: fixed; /* Убедитесь, что Canvas занимает весь экран */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* Canvas будет позади других элементов */
+}
