@@ -283,7 +283,7 @@ export const Book = ({ ...props }) => {
           if (page > delayedPage) {
             return delayedPage + 1;
           }
-          if (page < delayedPage) {
+          if (page < delayedPage) {3
             return delayedPage - 1;
           }
         }

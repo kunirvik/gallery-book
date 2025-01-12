@@ -1,6 +1,5 @@
 import { atom, useAtom } from "jotai";
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const pictures = [
   "DSC00680",
@@ -42,14 +41,29 @@ pages.push({
 
 export const UI = () => {
   const [page, setPage] = useAtom(pageAtom);
+  const [isAudioReady, setIsAudioReady] = useState(false);
+
+  // Фоновая музыка, которая будет играть в цикле
+  const backgroundAudio = new Audio("/audios/Fergie-London bridge.mp3");
+  backgroundAudio.loop = true;
+
+  // Запуск музыки по клику
+  const startBackgroundMusic = () => {
+    if (!isAudioReady) {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      audioContext.resume(); // Разрешаем воспроизведение аудио
+      backgroundAudio.play(); // Запуск фона
+      setIsAudioReady(true);
+    }
+  };
 
   return (
     <>
-      <main className=" pointer-events-none select-none z-10 fixed  inset-0  flex justify-between flex-col">
-        <a
-          className="pointer-events-auto mt-10 ml-10"
-          
-        >
+      <main
+        onClick={startBackgroundMusic} // Запуск музыки при клике
+        className="pointer-events-none select-none z-10 fixed inset-0 flex justify-between flex-col"
+      >
+        <a className="pointer-events-auto mt-10 ml-10">
           <img className="w-20" src="/images/logo.png" />
         </a>
         <div className="w-full overflow-auto pointer-events-auto flex justify-center">
@@ -78,7 +92,7 @@ export const UI = () => {
                   : "bg-black/30 text-white"
               }`}
               onClick={() => {
-                const audio = new Audio("/audios/page-flip-01a.mp3");
+                const audio = new Audio("/audios/page-flip-0a.mp3");
                 audio.play();
                 setPage(pages.length);
               }}
@@ -88,8 +102,12 @@ export const UI = () => {
           </div>
         </div>
       </main>
+    </>
+  );
+};
 
-      {/* <div className="fixed inset-0 flex items-center -rotate-2 select-none">
+  {/* бегушая строка 
+    <div className="fixed inset-0 flex items-center -rotate-2 select-none">
         <div className="relative">
           <div className="bg-white/0  animate-horizontal-scroll flex items-center gap-8 w-max px-8">
             <h1 className="shrink-0 text-white text-10xl font-black ">
@@ -144,7 +162,4 @@ export const UI = () => {
             </h2>
           </div> 
         </div>
-      </div>*/}
-    </>
-  );
-};
+      </div>*/} 
