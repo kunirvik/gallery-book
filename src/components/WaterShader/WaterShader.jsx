@@ -17,13 +17,13 @@ const WaterShaderMaterial = React.forwardRef((props, ref) => {
     uSmallWavesFrequency: { value: 3 },
     uSmallWavesSpeed: { value: 0.2 },
     uSmallWavesIterations: { value: 4 },
-    uDepthColor: { value: new THREE.Color('#72d9ba') },
-    uSurfaceColor: { value: new THREE.Color('#4d9aaa') },
+    uDepthColor: { value: new THREE.Color('rgb(36, 123, 42)') },
+    uSurfaceColor: { value: new THREE.Color('rgb(0, 0, 0)') },
     uColorOffset: { value: 0.08 },
     uColorMultiplier: { value: 5 },
     uFogStart: { value: 10 },  // Added for fog start
     uFogEnd: { value: 50 },   // Added for fog end
-    uVisibilityStart: { value: 100},
+    uVisibilityStart: { value: 11.3},
     uVisibilityEnd: { value: 0}, 
 
 
